@@ -1,0 +1,32 @@
+﻿<Page x:Class="crypto_currency_info.Pages.CryptocurrencyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:crypto_currency_info.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CryptocurrencyPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Button Width="100" Height="40" Content="Load Data" FontSize="14" Command="{Binding LoadDataFromApiCommand}"/>
+        </Grid>
+
+        <ListBox Grid.Row="1" Width="300" ItemsSource="{Binding CurrencyModels}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Width="100" Height="20" Text="{Binding Name}"/>
+                        <TextBlock Width="100" Height="20" Text="Lalka"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
