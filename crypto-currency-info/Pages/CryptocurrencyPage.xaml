@@ -21,10 +21,7 @@
         <ListBox Grid.Row="1" Width="300" ItemsSource="{Binding CurrencyModels}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Width="100" Height="20" Text="{Binding Name}"/>
-                        <TextBlock Width="100" Height="20" Text="Lalka"/>
-                    </StackPanel>
+                    <TextBlock Width="100" Height="20" Text="{Binding Name}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

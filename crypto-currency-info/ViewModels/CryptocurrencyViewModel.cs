@@ -10,29 +10,30 @@ namespace crypto_currency_info.ViewModels
 {
     class CryptocurrencyViewModel : INotifyPropertyChanged
     {
-        private readonly CurrencyService _currencyService;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private readonly CurrencyService _currencyService;
         public ObservableCollection<CurrencyModel> CurrencyModels { get; set; }
 
         public CryptocurrencyViewModel(CurrencyService currencyService)
         {
             _currencyService = currencyService;
+
+            LoadDataFromApi();
         }
 
         private async void LoadDataFromApi()
         {
-            var data = await _currencyService.GetTopCurrencies(5);
+            var data = await _currencyService.GetTopCurrencies(10);
 
-            var takedData = new ObservableCollection<CurrencyModel>();
+            var dataListForView = new ObservableCollection<CurrencyModel>();
 
             foreach (var currency in data)
             {
-                takedData.Add((CurrencyModel)currency);
+                dataListForView.Add((CurrencyModel)currency);
             }
 
-            CurrencyModels = takedData;
+            CurrencyModels = dataListForView;
             OnPropertyChanged("CurrencyModels");
         }
 
