@@ -19,7 +19,7 @@
             <Button Width="100" Height="30" Content="Search" Margin="20 0 0 0" Command="{Binding OnSearchCommand}"/>
         </StackPanel>
 
-        <ListBox Width="400" Height="300" Margin="138,90,138,10" Grid.RowSpan="2" ItemsSource="{Binding CurrencyModels}">
+        <ListBox Width="auto" Height="300" Margin="138,90,138,10" Grid.RowSpan="2" ItemsSource="{Binding CurrencyModels}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
