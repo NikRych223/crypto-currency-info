@@ -18,13 +18,12 @@ namespace crypto_currency_info.ViewModels
         public CryptocurrencyViewModel(CurrencyService currencyService)
         {
             _currencyService = currencyService;
-
             LoadDataFromApi();
         }
 
         private async void LoadDataFromApi()
         {
-            var data = await _currencyService.GetTopCurrencies(10);
+            var data = await _currencyService.GetCurrenciesByLimit(10);
 
             var dataListForView = new ObservableCollection<CurrencyModel>();
 

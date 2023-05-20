@@ -14,7 +14,7 @@
         <StackPanel  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Width="150" Height="40" Content="Cryptocurrency" Command="{Binding GoToCryptocurrencyPageCommand}"/>
             <Button Width="150" Height="40" Content="Crypto Info" Command="{Binding GoToCryptoInfoPageCommand}"/>
-            <Button Width="150" Height="40" Content="?Find Crypto?"/>
+            <Button Width="150" Height="40" Content="Detain Info" Command="{Binding GoToCryptoDetailInfoPageCommand}"/>
         </StackPanel>
 
         <Grid Grid.Column="1">

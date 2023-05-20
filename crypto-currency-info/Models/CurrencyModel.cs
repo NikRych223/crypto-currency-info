@@ -9,9 +9,12 @@ namespace crypto_currency_info.Models
     {
         private string _id;
         private string _name;
+        private string _volume;
+        private string _volumeChange;
         private string _rank;
         private string _symbol;
-        private string _priceUsd;
+        private float _priceUsd;
+        private string _coinUrl;
 
         public string Id
         {
@@ -22,7 +25,7 @@ namespace crypto_currency_info.Models
             set
             {
                 if (_id != value) _id = value;
-                OnPropertyChanged("Id");
+                OnPropertyChanged(nameof(Id));
             }
         }
 
@@ -35,7 +38,7 @@ namespace crypto_currency_info.Models
             set
             {
                 if (_rank != value) _rank = value;
-                OnPropertyChanged("Rank");
+                OnPropertyChanged(nameof(Rank));
             }
         }
 
@@ -48,7 +51,7 @@ namespace crypto_currency_info.Models
             set
             {
                 if (_symbol != value) _symbol = value;
-                OnPropertyChanged("Symbol");
+                OnPropertyChanged(nameof(Symbol));
             }
         }
 
@@ -61,11 +64,37 @@ namespace crypto_currency_info.Models
             set
             {
                 if (_name != value) _name = value;
-                OnPropertyChanged("Name");
+                OnPropertyChanged(nameof(Name));
             }
         }
 
-        public string PriceUsd
+        public string Volume
+        {
+            get
+            {
+                return _volume;
+            }
+            set
+            {
+                if (_volume != value) _volume = value;
+                OnPropertyChanged(nameof(Volume));
+            }
+        }
+
+        public string VolumeChange
+        {
+            get
+            {
+                return _volumeChange;
+            }
+            set
+            {
+                if (_volumeChange != value) _volumeChange = value;
+                OnPropertyChanged(nameof(VolumeChange));
+            }
+        }
+
+        public float PriceUsd
         {
             get
             {
@@ -74,7 +103,20 @@ namespace crypto_currency_info.Models
             set
             {
                 if (_priceUsd  != value) _priceUsd = value;
-                OnPropertyChanged("PriceUsd");
+                OnPropertyChanged(nameof(PriceUsd));
+            }
+        }
+
+        public string CoinUrl
+        {
+            get
+            {
+                return _coinUrl;
+            }
+            set
+            {
+                if (_coinUrl != value) _coinUrl = value;
+                OnPropertyChanged(nameof(CoinUrl));
             }
         }
 

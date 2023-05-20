@@ -22,5 +22,10 @@ namespace crypto_currency_info.Service
         {
             _mainFrame.Navigate(new CryptoInfoPage());
         }
+
+        public void NavigateToDetailInfo()
+        {
+            _mainFrame.Navigate(new CryptoDetailInfoPage());
+        }
     }
 }

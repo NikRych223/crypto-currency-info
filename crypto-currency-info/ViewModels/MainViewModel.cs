@@ -23,7 +23,13 @@ namespace crypto_currency_info.ViewModels
             _navigationService.NavigateToCryptoInfo();
         }
 
+        private void GoToCryptoDetailInfoPage()
+        {
+            _navigationService.NavigateToDetailInfo();
+        }
+
         public ICommand GoToCryptocurrencyPageCommand => new RelayCommand(GoToCryptocurrencyPage);
         public ICommand GoToCryptoInfoPageCommand => new RelayCommand(GoToCryptoInfoPage);
+        public ICommand GoToCryptoDetailInfoPageCommand => new RelayCommand(GoToCryptoDetailInfoPage);
     }
 }
