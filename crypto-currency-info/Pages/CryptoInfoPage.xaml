@@ -9,6 +9,32 @@
       Title="CryptoInfoPage">
 
     <Grid>
-        <TextBlock Width="300" Height="200" TextAlignment="Center" FontSize="20">!Crypto Info PAGE!</TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <TextBox Width="100" Height="30" Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Width="100" Height="30" Content="Search" Margin="20 0 0 0" Command="{Binding OnSearchCommand}"/>
+        </StackPanel>
+
+        <ListBox Width="400" Height="300" Margin="138,90,138,10" Grid.RowSpan="2" ItemsSource="{Binding CurrencyModels}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="0,0,10,0"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <TextBlock Width="20" Height="20" Text="{Binding Rank}"/>
+                        <TextBlock Width="40" Height="20" Text="{Binding Symbol}"/>
+                        <TextBlock Width="80" Height="20" Text="{Binding Name}"/>
+                        <TextBlock Width="80" Height="20" Text="{Binding PriceUsd}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
