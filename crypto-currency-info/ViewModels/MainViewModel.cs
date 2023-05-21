@@ -28,8 +28,14 @@ namespace crypto_currency_info.ViewModels
             _navigationService.NavigateToDetailInfo();
         }
 
+        private void GoToCryptoConvertPage()
+        {
+            _navigationService.NavigateToConvert();
+        }
+
         public ICommand GoToCryptocurrencyPageCommand => new RelayCommand(GoToCryptocurrencyPage);
         public ICommand GoToCryptoInfoPageCommand => new RelayCommand(GoToCryptoInfoPage);
         public ICommand GoToCryptoDetailInfoPageCommand => new RelayCommand(GoToCryptoDetailInfoPage);
+        public ICommand GoToConvertPageCommand => new RelayCommand(GoToCryptoConvertPage);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using crypto_currency_info.Interfaces;
 using crypto_currency_info.Models;
 using crypto_currency_info.Service;
 using System.Collections.ObjectModel;
@@ -28,8 +29,8 @@ namespace crypto_currency_info.ViewModels
                 OnPropertyChanged(nameof(InputText));
             }
         }
-        private CurrencyDetailModel _currencyModel;
-        public CurrencyDetailModel CurrencyModel
+        private ICurrencyDetailModel _currencyModel;
+        public ICurrencyDetailModel CurrencyModel
         {
             get { return _currencyModel; }
             set

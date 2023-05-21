@@ -60,14 +60,14 @@ namespace crypto_currency_info.Service
             }
         }
 
-        public async Task<CurrencyDetailModel> GetOneCurrencieDetailBySymbol(string symbol, int? limit = 1)
+        public async Task<ICurrencyDetailModel> GetOneCurrencieDetailBySymbol(string symbol, int? limitMarkets = 1)
         {
             var currencieList = await GetCurrencieBySymbol(symbol, 1);
             var currencie = currencieList[0];
 
             using (HttpClient client = new HttpClient())
             {
-                string url = $"{ApiBaseUrl}/{currencie.Id}/markets?limit={limit}";
+                string url = $"{ApiBaseUrl}/{currencie.Id}/markets?limit={limitMarkets}";
                 HttpResponseMessage response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
