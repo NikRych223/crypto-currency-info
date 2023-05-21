@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using crypto_currency_info.Interfaces;
 using crypto_currency_info.Models;
 using crypto_currency_info.Service;
 using crypto_currency_info.Windows;
@@ -37,7 +36,7 @@ namespace crypto_currency_info.ViewModels
             get { return _selectedValue; }
             set
             {
-                if (value >= 0 )
+                if (value >= 0)
                 {
                     _selectedValue = value;
                     OnPropertyChanged(nameof(SelectedValue));

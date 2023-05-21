@@ -1,6 +1,5 @@
 ﻿using crypto_currency_info.Interfaces;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace crypto_currency_info.Models
@@ -102,7 +101,7 @@ namespace crypto_currency_info.Models
             }
             set
             {
-                if (_priceUsd  != value) _priceUsd = value;
+                if (_priceUsd != value) _priceUsd = value;
                 OnPropertyChanged(nameof(PriceUsd));
             }
         }

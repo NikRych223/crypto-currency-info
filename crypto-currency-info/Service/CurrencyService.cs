@@ -90,7 +90,7 @@ namespace crypto_currency_info.Service
                         marketList.Add(market);
                     }
 
-                    var currencieVolumeChange = currencie.VolumeChange[0] == '-' ? 
+                    var currencieVolumeChange = currencie.VolumeChange[0] == '-' ?
                         $"DOWN in {currencie.VolumeChange}" : $"UP in {currencie.VolumeChange}";
 
                     var currencyDetail = new CurrencyDetailModel
