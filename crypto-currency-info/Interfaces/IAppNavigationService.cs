@@ -10,7 +10,7 @@ namespace crypto_currency_info.Interfaces
     {
         void NavigateToCryptocurrency();
         void NavigateToCryptoInfo();
-        void NavigateToDetailInfo();
+        //void NavigateToDetailInfo();
         void NavigateToConvert();
     }
 }

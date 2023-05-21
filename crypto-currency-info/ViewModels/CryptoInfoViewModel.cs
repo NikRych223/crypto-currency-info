@@ -2,6 +2,8 @@
 using crypto_currency_info.Interfaces;
 using crypto_currency_info.Models;
 using crypto_currency_info.Service;
+using crypto_currency_info.Windows;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -15,6 +17,8 @@ namespace crypto_currency_info.ViewModels
         private readonly CurrencyService _currencyService;
 
         private string _inputText;
+        private int _selectedValue;
+        private List<string> _currencySymbols;
         public string InputText
         {
             get
@@ -26,6 +30,19 @@ namespace crypto_currency_info.ViewModels
             {
                 _inputText = value;
                 OnPropertyChanged(nameof(InputText));
+            }
+        }
+        public int SelectedValue
+        {
+            get { return _selectedValue; }
+            set
+            {
+                if (value >= 0 )
+                {
+                    _selectedValue = value;
+                    OnPropertyChanged(nameof(SelectedValue));
+                    OnValueSelected(value);
+                }
             }
         }
 
@@ -40,15 +57,31 @@ namespace crypto_currency_info.ViewModels
         {
             var cryptoData = await _currencyService.GetCurrencieBySymbol(InputText);
             var dataListForView = new ObservableCollection<CurrencyModel>();
+            var currencySymbols = new List<string>();
 
             foreach (var item in cryptoData)
             {
                 dataListForView.Add((CurrencyModel)item);
+                currencySymbols.Add(item.Symbol);
             }
 
             CurrencyModels = dataListForView;
+            _currencySymbols = currencySymbols;
+
             OnPropertyChanged("CurrencyModels");
             InputText = string.Empty;
+        }
+
+        private void OnValueSelected(int selectedValue)
+        {
+            var criptoSymbol = _currencySymbols[selectedValue];
+
+            var cryptoDetailWindow = new CryptoDetailWindow();
+            var cryptoDetailViewModel = new CryptoDetailInfoViewModel(_currencyService);
+
+            cryptoDetailViewModel.InputText = criptoSymbol;
+            cryptoDetailWindow.DataContext = cryptoDetailViewModel;
+            cryptoDetailWindow.Show();
         }
 
         public ICommand OnSearchCommand => new RelayCommand(OnSearch);
