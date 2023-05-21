@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using crypto_currency_info.Interfaces;
 using crypto_currency_info.Models;
 using crypto_currency_info.Service;
 using System.Collections.ObjectModel;
@@ -13,7 +14,7 @@ namespace crypto_currency_info.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CurrencyService _currencyService;
-        public ObservableCollection<CurrencyModel> CurrencyModels { get; set; }
+        public ObservableCollection<ICurrencyModel> CurrencyModels { get; set; }
 
         public CryptocurrencyViewModel(CurrencyService currencyService)
         {
@@ -25,7 +26,7 @@ namespace crypto_currency_info.ViewModels
         {
             var data = await _currencyService.GetCurrenciesByLimit(10);
 
-            var dataListForView = new ObservableCollection<CurrencyModel>();
+            var dataListForView = new ObservableCollection<ICurrencyModel>();
 
             foreach (var currency in data)
             {

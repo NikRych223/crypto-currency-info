@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
+using crypto_currency_info.Interfaces;
 using crypto_currency_info.Models;
 using crypto_currency_info.Service;
 using crypto_currency_info.Windows;
@@ -45,7 +46,7 @@ namespace crypto_currency_info.ViewModels
             }
         }
 
-        public ObservableCollection<CurrencyModel> CurrencyModels { get; set; }
+        public ObservableCollection<ICurrencyModel> CurrencyModels { get; set; }
 
         public CryptoInfoViewModel(CurrencyService currencyService)
         {
@@ -55,12 +56,12 @@ namespace crypto_currency_info.ViewModels
         private async void OnSearch()
         {
             var cryptoData = await _currencyService.GetCurrencieBySymbol(InputText);
-            var dataListForView = new ObservableCollection<CurrencyModel>();
+            var dataListForView = new ObservableCollection<ICurrencyModel>();
             var currencySymbols = new List<string>();
 
             foreach (var item in cryptoData)
             {
-                dataListForView.Add((CurrencyModel)item);
+                dataListForView.Add(item);
                 currencySymbols.Add(item.Symbol);
             }
 
