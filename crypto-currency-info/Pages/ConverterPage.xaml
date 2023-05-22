@@ -47,8 +47,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Width="auto" Height="auto" Margin="50,50,50,10">
-            <StackPanel Orientation="Vertical" >
-                <!--<StackPanel.Resources>
+            <!--<StackPanel.Resources>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Margin" Value="0,0,20,0"/>
                     </Style>
@@ -67,8 +66,7 @@
                     <TextBlock Width="auto" Height="40" Text="Second Coin Name:" Foreground="#FFF5F8FB"/>
                     <TextBlock Width="auto" Height="40" Text="{Binding InputCriptoTwo}" Margin="20,0,0,0" Foreground="#FF04080C" />
                 </StackPanel>
-                <TextBlock Width="250" Height="40" Text="{Binding ConvertValue}" Foreground="#FF04080C" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
-            </StackPanel>
+            <TextBlock Width="250" Height="40" Text="{Binding ConvertValue}" Foreground="#FF04080C" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>
