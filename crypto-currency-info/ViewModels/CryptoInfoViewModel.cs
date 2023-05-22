@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using crypto_currency_info.Interfaces;
-using crypto_currency_info.Models;
 using crypto_currency_info.Service;
 using crypto_currency_info.Windows;
 using System.Collections.Generic;
@@ -81,6 +80,7 @@ namespace crypto_currency_info.ViewModels
 
             cryptoDetailViewModel.InputText = criptoSymbol;
             cryptoDetailWindow.DataContext = cryptoDetailViewModel;
+            cryptoDetailViewModel.OnSearchCommand.Execute(this);
             cryptoDetailWindow.Show();
         }
 

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:crypto_currency_info.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="380" d:DesignWidth="800"
       Title="CryptoInfoPage">
 
     <Grid>
@@ -15,11 +15,22 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <TextBox Width="100" Height="30" Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Width="100" Height="30" Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}" Background="#FFE3ECF5" BorderBrush="{x:Null}" Foreground="#FF04080C" HorizontalContentAlignment="Center" FontFamily="Cascadia Code" FontSize="16" VerticalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
             <Button Width="100" Height="30" Content="Search" Margin="20 0 0 0" Command="{Binding OnSearchCommand}"/>
         </StackPanel>
 
-        <ListBox Width="auto" Height="300" Margin="138,90,138,10" Grid.RowSpan="2" ItemsSource="{Binding CurrencyModels}" SelectedIndex="{Binding SelectedValue}">
+        <ListBox Grid.Row="1" Width="500" Height="250" Grid.RowSpan="2" ItemsSource="{Binding CurrencyModels}" SelectedIndex="{Binding SelectedValue}" Background="#FFE3ECF5" Foreground="#FF04080C" HorizontalContentAlignment="Center" FontFamily="Cascadia Code" FontSize="16">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -29,9 +40,9 @@
                             </Style>
                         </StackPanel.Resources>
                         <TextBlock Width="20" Height="20" Text="{Binding Rank}"/>
-                        <TextBlock Width="40" Height="20" Text="{Binding Symbol}"/>
-                        <TextBlock Width="80" Height="20" Text="{Binding Name}"/>
-                        <TextBlock Width="80" Height="20" Text="{Binding PriceUsd}"/>
+                        <TextBlock Width="80" Height="20" Text="{Binding Symbol}"/>
+                        <TextBlock Width="175" Height="20" Text="{Binding Name}"/>
+                        <TextBlock Width="175" Height="20" Text="{Binding PriceUsd}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
