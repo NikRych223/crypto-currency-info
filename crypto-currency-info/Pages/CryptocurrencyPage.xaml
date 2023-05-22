@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:crypto_currency_info.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="380" d:DesignWidth="800"
       Title="CryptocurrencyPage">
 
     <Grid>
@@ -15,10 +15,15 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Button Width="100" Height="40" Content="Load Data" FontSize="14" Command="{Binding LoadDataFromApiCommand}"/>
+            <Button Width="180" Height="40" Content="Load Top 10 Coins" Command="{Binding LoadDataFromApiCommand}" Foreground="#FF04080C"/>
         </Grid>
 
-        <ListBox Grid.Row="1" Width="300" ItemsSource="{Binding CurrencyModels}">
+        <ListBox Grid.Row="1" Height="250" Width="180" ItemsSource="{Binding CurrencyModels}" Background="#FFE3ECF5" Foreground="#FF04080C" FontFamily="Cascadia Code" FontSize="16" HorizontalContentAlignment="Center" Padding="5,5,5,5">
+            <ListBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </ListBox.Resources>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Width="100" Height="20" Text="{Binding Name}"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:crypto_currency_info.Windows"
         mc:Ignorable="d"
-        Title="CryptoDetailWindow" Height="450" Width="800">
+        Title="CryptoDetailWindow" Height="500" Width="600" Icon="/Windows/Bitcoin.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -13,43 +13,64 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="220" >
-            <TextBox Width="100" Height="30" Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Width="100" Height="30" Content="Search" Margin="20 0 0 0" Command="{Binding OnSearchCommand}"/>
+            <TextBox Width="100" Height="30" Text="{Binding InputText, UpdateSourceTrigger=PropertyChanged}" Background="#FFE3ECF5" Foreground="#FF04080C" SelectionBrush="#FFE0E0E0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Cascadia Code" FontSize="16">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button Width="100" Height="30" Content="Search" Margin="20 0 0 0" Command="{Binding OnSearchCommand}" Foreground="#FF04080C"/>
         </StackPanel>
 
         <StackPanel Width="auto" Grid.Row="1" DataContext="{Binding CurrencyModel}" Margin="62,0,62,10">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type TextBlock}">
-                    <Setter Property="Margin" Value="0,0,10,0"/>
+                    <Setter Property="Margin" Value="0,5,20,0"/>
+                    <Setter Property="Foreground" Value="#f5f8fb"/>
+                    <Setter Property="FontFamily" Value="Cascadia Code"/>
+                    <Setter Property="FontSize" Value="16"/>
                 </Style>
             </StackPanel.Resources>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="Rank:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding Rank}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding Rank}" Foreground="#FF04080C"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="Symbol:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding Symbol}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding Symbol}" Foreground="#FF04080C"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="Name:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding Name}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding Name}" Foreground="#FF04080C"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="Volume:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding Volume}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding Volume}" Foreground="#FF04080C"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="VolumeChange:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding VolumeChange}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding VolumeChange}" Foreground="#FF04080C"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="auto" Height="20" Text="PriceUsd:"/>
-                <TextBlock Width="auto" Height="20" Text="{Binding PriceUsd}"/>
+                <TextBlock Width="auto" Height="20" Text="{Binding PriceUsd}" Foreground="#FF04080C"/>
             </StackPanel>
-            <TextBox Width="auto" Height="20" Text="{Binding CoinUrl}"/>
 
-            <ListBox Width="auto" Height="auto" Margin="0 10 0 0" Grid.RowSpan="2" ItemsSource="{Binding Markets}">
+            <TextBox Width="300" Height="20" Text="{Binding CoinUrl}" FontFamily="Cascadia Code" FontSize="16" Margin="0,10,0,0" Background="#FFE3ECF5" Foreground="#FF04080C" HorizontalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <ListBox Width="300" Height="180" Margin="0,10,0,0" Grid.RowSpan="2" ItemsSource="{Binding Markets}" Background="#FFE3ECF5" Foreground="#FF04080C" FontFamily="Cascadia Code" FontSize="16" HorizontalContentAlignment="Center">
+                <ListBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </ListBox.Resources>
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -58,8 +79,8 @@
                                     <Setter Property="Margin" Value="0,0,10,0"/>
                                 </Style>
                             </StackPanel.Resources>
-                            <TextBlock Width="80" Height="20" Text="{Binding MarketName}"/>
-                            <TextBlock Width="auto" Height="20" Text="{Binding MarketPriceUsd}"/>
+                            <TextBlock Width="150" Height="20" Text="{Binding MarketName}"/>
+                            <TextBlock Width="150" Height="20" Text="{Binding MarketPriceUsd}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
