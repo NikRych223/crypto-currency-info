@@ -28,11 +28,11 @@ namespace crypto_currency_info.Service
             }
         }
 
-        public async Task<List<ICurrencyModel>> GetCurrencieBySymbol(string symbol)
+        public async Task<List<ICurrencyModel>> GetCurrencieBySymbolAndLimit(string symbol, int limit)
         {
             using (HttpClient client = new HttpClient())
             {
-                string url = $"{ApiBaseUrl}?search={symbol}";
+                string url = $"{ApiBaseUrl}?search={symbol}&limit={limit}";
                 HttpResponseMessage response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
@@ -124,6 +124,7 @@ namespace crypto_currency_info.Service
             foreach (var item in parseData)
             {
                 var priceUsdArray = item["priceUsd"].ToString().Split('.');
+                var priceUsdAfterDot = priceUsdArray[1].Length >= 4 ? priceUsdArray[1].Substring(0, 3) : priceUsdArray[1];
 
                 var cripto = new CurrencyModel
                 {
@@ -133,7 +134,7 @@ namespace crypto_currency_info.Service
                     Name = item["name"].ToString(),
                     Volume = item["vwap24Hr"].ToString(),
                     VolumeChange = item["changePercent24Hr"].ToString(),
-                    PriceUsd = float.Parse($"{priceUsdArray[0]}.{priceUsdArray[1].Substring(0, 4)}"),
+                    PriceUsd = float.Parse($"{priceUsdArray[0]}.{priceUsdAfterDot}"),
                     CoinUrl = item["explorer"].ToString()
                 };
 

@@ -54,7 +54,7 @@ namespace crypto_currency_info.ViewModels
 
         private async void OnSearch()
         {
-            var cryptoData = await _currencyService.GetCurrencieBySymbol(InputText);
+            var cryptoData = await _currencyService.GetCurrencieBySymbol(InputText, 10);
             var dataListForView = new ObservableCollection<ICurrencyModel>();
             var currencySymbols = new List<string>();
 

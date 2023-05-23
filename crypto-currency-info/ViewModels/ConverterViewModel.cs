@@ -57,8 +57,9 @@ namespace crypto_currency_info.ViewModels
 
                 var convertResult = float.Parse(firstCripto.Volume) / float.Parse(secondCripto.Volume);
                 var resultStringArray = convertResult.ToString().Split('.');
+                var resultStringAfterDot = resultStringArray[1].Length >= 4 ? resultStringArray[1].Substring(0, 3) : resultStringArray[1];
 
-                ConvertValue = $"{resultStringArray[0]}.{resultStringArray[1].Substring(0, 4)}";
+                ConvertValue = $"{resultStringArray[0]}.{resultStringAfterDot}";
             }
         }
 
