@@ -12,7 +12,6 @@ namespace crypto_currency_info.ViewModels
     class CryptocurrencyViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
         private readonly CurrencyService _currencyService;
         public ObservableCollection<ICurrencyModel> CurrencyModels { get; set; }
 
@@ -25,7 +24,6 @@ namespace crypto_currency_info.ViewModels
         private async void LoadDataFromApi()
         {
             var data = await _currencyService.GetCurrenciesByLimit(10);
-
             var dataListForView = new ObservableCollection<ICurrencyModel>();
 
             foreach (var currency in data)

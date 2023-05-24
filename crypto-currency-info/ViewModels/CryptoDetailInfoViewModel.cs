@@ -15,6 +15,9 @@ namespace crypto_currency_info.ViewModels
         private readonly CurrencyService _currencyService;
 
         private string _inputText;
+        private ICurrencyDetailModel _currencyModel;
+
+        public ObservableCollection<MarketModel> Markets { get; set; }
         public string InputText
         {
             get
@@ -28,7 +31,6 @@ namespace crypto_currency_info.ViewModels
                 OnPropertyChanged(nameof(InputText));
             }
         }
-        private ICurrencyDetailModel _currencyModel;
         public ICurrencyDetailModel CurrencyModel
         {
             get { return _currencyModel; }
@@ -39,8 +41,6 @@ namespace crypto_currency_info.ViewModels
             }
         }
 
-        public ObservableCollection<MarketModel> Markets { get; set; }
-
         public CryptoDetailInfoViewModel(CurrencyService currencyService)
         {
             _currencyService = currencyService;
@@ -49,7 +49,6 @@ namespace crypto_currency_info.ViewModels
         private async void OnSearch()
         {
             var cryptoData = await _currencyService.GetOneCurrencieDetailBySymbol(InputText, 5);
-
             var marketList = new ObservableCollection<MarketModel>();
 
             foreach (var market in cryptoData.Markets)

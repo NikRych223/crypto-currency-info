@@ -18,6 +18,8 @@ namespace crypto_currency_info.ViewModels
         private string _inputText;
         private int _selectedValue;
         private List<string> _currencySymbols;
+
+        public ObservableCollection<ICurrencyModel> CurrencyModels { get; set; }
         public string InputText
         {
             get
@@ -44,8 +46,6 @@ namespace crypto_currency_info.ViewModels
                 }
             }
         }
-
-        public ObservableCollection<ICurrencyModel> CurrencyModels { get; set; }
 
         public CryptoInfoViewModel(CurrencyService currencyService)
         {
