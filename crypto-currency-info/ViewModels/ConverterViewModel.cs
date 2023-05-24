@@ -60,6 +60,8 @@ namespace crypto_currency_info.ViewModels
                 var resultStringAfterDot = resultStringArray[1].Length >= 4 ? resultStringArray[1].Substring(0, 3) : resultStringArray[1];
 
                 ConvertValue = $"{resultStringArray[0]}.{resultStringAfterDot}";
+                InputCriptoOne = firstCripto.Name;
+                InputCriptoTwo = secondCripto.Name;
             }
         }
 

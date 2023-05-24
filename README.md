@@ -1,6 +1,5 @@
 # _Test App CryptoCUR_
 ### by Kyrychenko Nikita
-#
 
 Simple desktop application for give information about cryptocurrency.
 ## Features
@@ -10,7 +9,6 @@ Simple desktop application for give information about cryptocurrency.
 - View top 5 (by API) markets specific cryptocurrency.
 - Converting one unit cryptocurrency to another one unit.
 
-#
 ## Tech
 The application was developed in C#, and using only 2 plaguins and one API.
 For this API was used only GET requests.
@@ -19,7 +17,6 @@ During development, SOLID and MVVM patterns were used.
 |-----|------|
 |CoinCap|[docs.coincap.io][RAc]|
 
-#
 ## Plaguins
 Only plugins necessary for work were used. Their list is presented below.
 | Plaguins | DOCS |
@@ -27,7 +24,6 @@ Only plugins necessary for work were used. Their list is presented below.
 | Community Toolkits MVVM |[MS Docs website][RPctmvvm]|
 | Newtonsoft JSON |[newtonsoft.com/json/help][RPnsjson]|
 
-#
 ## License
 MIT
 

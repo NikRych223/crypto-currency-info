@@ -52,21 +52,24 @@
                         <Setter Property="Margin" Value="0,0,20,0"/>
                     </Style>
                 </StackPanel.Resources>-->
-                <StackPanel.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="FontFamily" Value="Cascadia Code"/>
-                        <Setter Property="FontSize" Value="16"/>
-                    </Style>
-                </StackPanel.Resources>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="auto" Height="40" Text="First Coin Name:" Foreground="#FFF5F8FB"/>
-                    <TextBlock Width="auto" Height="40" Text="{Binding InputCriptoOne}" Margin="20,0,0,0" Foreground="#FF04080C" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Width="auto" Height="40" Text="Second Coin Name:" Foreground="#FFF5F8FB"/>
-                    <TextBlock Width="auto" Height="40" Text="{Binding InputCriptoTwo}" Margin="20,0,0,0" Foreground="#FF04080C" />
-                </StackPanel>
-            <TextBlock Width="250" Height="40" Text="{Binding ConvertValue}" Foreground="#FF04080C" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontFamily" Value="Cascadia Code"/>
+                    <Setter Property="FontSize" Value="16"/>
+                </Style>
+            </StackPanel.Resources>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="auto" Height="40" Text="First Coin Name:" Foreground="#FFF5F8FB"/>
+                <TextBlock Width="auto" Height="40" Text="{Binding InputCriptoOne}" Margin="20,0,0,0" Foreground="#FF04080C" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="auto" Height="40" Text="Second Coin Name:" Foreground="#FFF5F8FB"/>
+                <TextBlock Width="auto" Height="40" Text="{Binding InputCriptoTwo}" Margin="20,0,0,0" Foreground="#FF04080C" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="auto" Height="40" Text="Result One-To-One:" Foreground="#FFF5F8FB"/>
+                <TextBlock Width="auto" Height="40" Text="{Binding ConvertValue}" Foreground="#FF04080C" Margin="20,0,0,0"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
